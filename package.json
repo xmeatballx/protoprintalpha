@@ -1,0 +1,11 @@
+{
+  "name": "riso-app",
+  "version": "1.0.0",
+  "description": "image processing app for screenprinting",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "meatball",
+  "license": "ISC"
+}
