@@ -5,7 +5,7 @@ const upload = multer({dest: __dirname + '/uploads/images'});
 const app = express();
 const PORT = 3000;
 
-app.use(express.static('index.html'));
+app.use(express.static('riso-app'));
 
 app.post('/upload', upload.single('photo'), (req, res) => {
     if(req.file) {
