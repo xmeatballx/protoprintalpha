@@ -3,9 +3,11 @@ const multer = require('multer');
 const upload = multer({dest: __dirname + '/uploads/images'});
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
-app.use(express.static('index.html'));
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 
 // app.post('/upload', upload.single('photo'), (req, res) => {
 //     if(req.file) {
