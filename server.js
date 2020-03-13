@@ -3,7 +3,7 @@ const multer = require('multer');
 const path = require('path');
 //const upload = multer({dest: __dirname + '/uploads/images'}, {filename: 'a'});
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "/uploads/images");
@@ -17,7 +17,7 @@ var upload = multer({ storage: storage });
 app.use(express.static('public'));
 
 app.listen(PORT, () => {
-    console.log('Listening at ' + PORT );
+    console.log(`Our app is running on port ${ PORT }`);
 });
 
 app.post('/upload', upload.single('photo'), (req, res) => {
