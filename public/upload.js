@@ -4,25 +4,32 @@ var fgColor;
 var bgColor;
 var slider;
 var slider2;
-var scaler=4;
+var scaler=3;
 var c1;
 var c2;
 var bright;
 
+function preload(){
+   img = loadImage("uploads/images/a.jpg");
+
+}
+
 function setup() {
-  img = loadImage("riso-app/uploads/images/a.jpg");
-  img.resize(img.width/3,img.height/3);
-  createCanvas(img.width,img.height);
+  rectMode(CENTER);
+  img.resize(windowWidth/3,0);
+  canvas = createCanvas(img.width,img.height);
   img.resize(width/scaler,height/scaler);
-  a.position(width+2,0);
-  a.mouseClicked(handleFile);
+  canvas.position(windowWidth/2-width/2,windowHeight/2-height/2);
+
+  var upload = select('#upload');
+  upload.position(canvas.x,canvas.y-upload.height);
   
   slider = createSlider(2,10,2);
-  slider.position(width+2,20); 
+  slider.position(canvas.x+width+2,canvas.y+20); 
   slider.changed(writeSize);
 
   slider2 = createSlider(70,500,0);
-  slider2.position(width+2,slider.height+20); 
+  slider2.position(canvas.x+width+2,canvas.y+slider.height+20); 
   slider2.changed(writeBright);
   bright = 255;
 

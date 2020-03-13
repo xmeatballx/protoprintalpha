@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "/uploads/images");
+    cb(null, __dirname + "/public/uploads/images");
   },
   filename: function (req, file, cb) {
     cb(null, 'a.jpg');
