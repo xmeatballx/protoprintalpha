@@ -15,9 +15,6 @@ function setup() {
   img.resize(img.width/3,img.height/3);
   createCanvas(img.width,img.height);
   img.resize(width/scaler,height/scaler);
-  a.position(width+2,0);
-  a.mouseClicked(handleFile);
-  
   slider = createSlider(2,10,2);
   slider.position(width+2,20); 
   slider.changed(writeSize);
@@ -89,8 +86,8 @@ function processPixels(){
   //updatePixels();
 }
 
-function handleFile() {
-    img = loadImage("uploads/photos/" + "a.filename");
-    processPixels;
-}
+// function handleFile() {
+//     //img = loadImage("uploads/photos/" + "a.filename");
+//     //processPixels();
+// }
 
