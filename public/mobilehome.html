@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style> body {padding: 0; margin: 0;} </style>
+    <script src="p5.js"></script>
+    <script src="p5.sound.js"></script>
+    <script src="mobilehome.js"></script>
+    <style>
+    div {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+    </style>
+  </head>
+  <body>
+    <h1 id = "h">
+      <center>
+      <font size='135'> PROTOPRINT ONLINE</font>
+    <form id = 'upload' action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" accept="image/*" name="photo" >
+        <input type="submit" value="upload">
+    </form>
+    </center>
+  </h1>
+  <div>
+    <center>
+  <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Dot Size </font></p>
+    <input style="padding-top: 2px; padding-bottom: 2px;" id='slider' type="range" min="2" max="10" value="2" class="slider">
+    <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Light Intensity </font></p>
+    <input style="padding-top: 2px; padding-bottom: 2px;" id='slider2' type="range" min="70" max="500" value="0" class="slider">
+      <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Foreground Color </font></p>
+    <input style="padding-top: 2px; padding-bottom: 2px;" id='fgcolor' type="color" min="70" max="500" value="0">
+    <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Background Color </font></p>
+    <input style="padding-top: 2px; padding-bottom: 2px;" id='bgcolor' type="color" min="70" max="500" value="0">
+    </center>
+  </div>
+</form>
+<style>
+body {
+  background-image: url('background.jpg');
+}
+</style>
+</body>
+</html>

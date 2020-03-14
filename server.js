@@ -16,8 +16,9 @@ var upload = multer({ storage: storage });
 
 app.use(express.static('public'));
 
-app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
+app.get('/mobile', upload.single('photo'), (req, res) => {
+       res.sendFile(__dirname + '/public/mobilehome.html');
+    // else throw 'error';
 });
 
 app.post('/upload', upload.single('photo'), (req, res) => {
@@ -25,4 +26,8 @@ app.post('/upload', upload.single('photo'), (req, res) => {
        res.sendFile(__dirname + '/public/uploaded.html');
      }
     // else throw 'error';
+});
+
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
