@@ -21,20 +21,32 @@ function setup() {
   img.resize(width/scaler,height/scaler);
   canvas.position(windowWidth/2-width/2,windowHeight/2-height/2);
 
-  var upload = select('#upload');
-  upload.position(canvas.x,canvas.y-upload.height);
+  // var h = select('#h');
+
+  // var upload = select('#upload');
+  // upload.position(h.width,h.height);
   
+  var sliderLabel = createP('Dot Size');
+  sliderLabel.position(canvas.x+width+2,canvas.y+20);
   slider = createSlider(2,10,2);
-  slider.position(canvas.x+width+2,canvas.y+20); 
+  slider.position(canvas.x+width+2,canvas.y+60); 
   slider.changed(writeSize);
 
+  var sliderLabel2 = createP('Light Intensity');
+  sliderLabel2.position(canvas.x+width+2,canvas.y+90);
   slider2 = createSlider(70,500,0);
-  slider2.position(canvas.x+width+2,canvas.y+slider.height+20); 
+  slider2.position(canvas.x+width+2,canvas.y+slider.height+120); 
   slider2.changed(writeBright);
   bright = 255;
 
+  var pickerLabel = createP('Foreground Color');
+  var pickerLabel2 = createP('Background Color');
+  pickerLabel.position(canvas.x+width+2,canvas.y+160);
+  pickerLabel2.position(canvas.x+width+2,canvas.y+240)
   fgColor = createColorPicker('black');
   bgColor = createColorPicker('white');
+  fgColor.position(canvas.x+width+2,canvas.y+200);
+  bgColor.position(canvas.x+width+2,canvas.y+280);
   setStroke();
   setBackground();
 
@@ -72,6 +84,7 @@ function setBackground(){
 function draw(){
   fgColor.input(setStroke);
   bgColor.input(setBackground);
+  //canvas.resize(windowWidth/3);
 }
 
 function processPixels(){
