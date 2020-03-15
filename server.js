@@ -21,6 +21,13 @@ app.get('/mobile', upload.single('photo'), (req, res) => {
     // else throw 'error';
 });
 
+app.post('/mobileupload', upload.single('photo'), (req, res) => {
+     if(req.file) {
+       res.sendFile(__dirname + '/public/mobileuploaded.html');
+     }
+    // else throw 'error';
+});
+
 app.post('/upload', upload.single('photo'), (req, res) => {
      if(req.file) {
        res.sendFile(__dirname + '/public/uploaded.html');
