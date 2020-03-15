@@ -15,42 +15,49 @@ function preload(){
 }
 
 function setup() {
-  rectMode(CENTER);
+
+  var h = select('#h');
   img.resize(windowWidth/3,0);
   canvas = createCanvas(img.width,img.height);
-  img.resize(width/scaler,height/scaler);
-  canvas.position(windowWidth/2-width/2,windowHeight/2-height/2);
-
-  // var h = select('#h');
+  img.resize(canvas.width/scaler,canvas.height/scaler);
+  canvas.position(windowWidth/2-width/2,h-10);
 
   // var upload = select('#upload');
   // upload.position(h.width,h.height);
   
   var sliderLabel = createP('Dot Size');
-  sliderLabel.position(canvas.x+width+2,canvas.y+20);
+  sliderLabel.position(canvas.width*2+5,h.height+5+20);
   slider = createSlider(2,10,2);
-  slider.position(canvas.x+width+2,canvas.y+60); 
+  slider.position(canvas.width+canvas.width+5,h.height+5+60); 
   slider.changed(writeSize);
 
   var sliderLabel2 = createP('Light Intensity');
-  sliderLabel2.position(canvas.x+width+2,canvas.y+90);
+  sliderLabel2.position(canvas.width+canvas.width+5,h.height+5+90);
   slider2 = createSlider(70,500,0);
-  slider2.position(canvas.x+width+2,canvas.y+slider.height+120); 
+  slider2.position(canvas.width+canvas.width+5,h.height+5+slider.height+120); 
   slider2.changed(writeBright);
   bright = 255;
 
   var pickerLabel = createP('Foreground Color');
   var pickerLabel2 = createP('Background Color');
-  pickerLabel.position(canvas.x+width+2,canvas.y+160);
-  pickerLabel2.position(canvas.x+width+2,canvas.y+240)
+  pickerLabel.position(canvas.width+canvas.width+5,h.height+5+160);
+  pickerLabel2.position(canvas.width+canvas.width+5,h.height+5+240)
   fgColor = createColorPicker('black');
   bgColor = createColorPicker('white');
-  fgColor.position(canvas.x+width+2,canvas.y+200);
-  bgColor.position(canvas.x+width+2,canvas.y+280);
+  fgColor.position(canvas.width+canvas.width+5,h.height+5+200);
+  bgColor.position(canvas.width+canvas.width+5,h.height+5+280);
   setStroke();
   setBackground();
 
+  var button = createButton('Save');
+  button.mouseClicked(saveIt);
+  button.position(canvas.width+canvas.width+5,h.height+5+340)
+
   processPixels();
+}
+
+function saveIt(){
+  saveCanvas("protoprint"+month()+"-"+day()+"-"+year()+"-"+hour()+":"+second());
 }
 
 function writeSize(){
@@ -82,9 +89,10 @@ function setBackground(){
 }
 
 function draw(){
+  img.loadPixels();
   fgColor.input(setStroke);
   bgColor.input(setBackground);
-  //canvas.resize(windowWidth/3);
+  canvas.width=windowWidth/3;
 }
 
 function processPixels(){

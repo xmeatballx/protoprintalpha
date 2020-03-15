@@ -21,7 +21,7 @@ rectMode(CENTER);
 
   var h = select('#h');
 
-  canvas.position(windowWidth/2-width/2,h.y+20);
+  canvas.position(windowWidth/2-width/2,h.height+20);
   
   slider = select("#slider");
   slider.changed(writeSize);
@@ -44,10 +44,10 @@ rectMode(CENTER);
 
 function writeSize(){
   img.loadPixels();
+  processPixels();
   scaler = slider.value();
   img.resize(width/scaler,height/scaler); 
   setBackground();
-  processPixels();
 }
 
 function writeBright(){
