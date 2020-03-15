@@ -83,7 +83,7 @@ function processPixels(){
   //img.resize(img.width/4,img.height/4);
   for (var i = 0; i < img.height;i++) {
       for (var j = 0; j < img.width;j++){
-        var index = ((img.height-i)+(j*img.width))*4;
+        var index = ((img.width-i)+(j*img.width))*4;
         //var index = (width-j+i*width)*8;
         var r = img.pixels[index];
         var b = img.pixels[index+1];
