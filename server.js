@@ -28,6 +28,16 @@ app.post('/mobileupload', upload.single('photo'), (req, res) => {
     // else throw 'error';
 });
 
+app.get('/cmyk', upload.single('photo'), (req, res) => {
+       res.sendFile(__dirname + '/public/cmyk.html');
+    // else throw 'error';
+});
+
+app.post('/cmykupload', upload.single('photo'), (req, res) => {
+       res.sendFile(__dirname + '/public/cmykuploaded.html');
+    // else throw 'error';
+});
+
 app.post('/upload', upload.single('photo'), (req, res) => {
      if(req.file) {
        res.sendFile(__dirname + '/public/uploaded.html');

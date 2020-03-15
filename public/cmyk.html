@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style> body {padding: 0; margin: 0;} </style>
+    <script src="p5.js"></script>
+    <script src="p5.sound.js"></script>
+    <script src="p5riso.js"></script>
+    <script src="cmyk.js"></script>
+  </head>
+  <body>
+    <h1 id = "h">
+      <center><font size='135'> PROTOPRINT ONLINE</font>
+      <form id = 'upload' action="/cmykupload" method="post" enctype="multipart/form-data">
+        <input type="file" accept="image/*" name="photo" >
+        <input type="submit" value="upload">
+      </center>
+    </form>
+    </h1>
+    <style>
+    body {
+      background-image: url('background.jpg');
+    }
+</style>
+  </body>
+</html>
