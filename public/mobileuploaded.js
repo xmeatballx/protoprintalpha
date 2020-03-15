@@ -16,7 +16,7 @@ function preload()  {
 function setup() {
 rectMode(CENTER);
   img.resize(windowWidth,0);
-  canvas = createCanvas(img.height,img.width);
+  canvas = createCanvas(img.width,img.height);
   img.resize(width/scaler,height/scaler);
 
   var h = select('#h');
