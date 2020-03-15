@@ -19,35 +19,22 @@ rectMode(CENTER);
   canvas = createCanvas(img.width,img.height);
   img.resize(width/scaler,height/scaler);
 
-   var h = select('#h');
+  var h = select('#h');
 
-  // var upload = select('#upload');
-  // upload.position(h.width,h.height);
+  canvas.position(windowWidth/2-width/2,h.y+20);
   
-  var sliderLabel = createP('Dot Size');
-  sliderLabel.position(h.x+width+2,h.y+20);
   slider = select("#slider");
-  //slider.position(h.x+width+2,h.y+60); 
   slider.changed(writeSize);
 
-  var sliderLabel2 = createP('Light Intensity');
-  sliderLabel2.position(h.x+width+2,h.y+90);
   slider2 = select('#slider2');
-  //slider2.position(h.x+width+2,h.y+slider.height+120); 
   slider2.changed(writeBright);
   bright = 255;
 
-  var pickerLabel = createP('Foreground Color');
-  var pickerLabel2 = createP('Background Color');
-  pickerLabel.position(h.x+width+2,h.y+160);
-  pickerLabel2.position(h.x+width+2,h.y+240)
-  fgColor = createColorPicker('black');
-  bgColor = createColorPicker('white');
-  
-  canvas.position(windowWidth/2-width/2,bgColor.y+20);
+  fgColor = select('#fgcolor');
+  bgColor = select("#bgcolor")
 
-  fgColor.position(canvas.x+width+2,canvas.y-20);
-  bgColor.position(canvas.x+width+2,canvas.y-20);
+  //fgColor.position(canvas.x+width+2,canvas.y-20);
+  //bgColor.position(canvas.x+width+2,canvas.y-20);
 
   setStroke();
   setBackground();
@@ -56,6 +43,7 @@ rectMode(CENTER);
 }
 
 function writeSize(){
+  img.loadPixels();
   scaler = slider.value();
   img.resize(width/scaler,height/scaler); 
   setBackground();
@@ -70,7 +58,7 @@ function writeBright(){
 }
 
 function setStroke(){
-  c1 = fgColor.color();
+  c1 = fgColor.value();
   fill(c1);
   stroke(c1);
   processPixels();
@@ -78,7 +66,7 @@ function setStroke(){
 }
 
 function setBackground(){
-  c2 = bgColor.color();
+  c2 = bgColor.value();
   background(c2);
   processPixels();
 }

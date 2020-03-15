@@ -10,8 +10,8 @@
     <script src="mobilehome.js"></script>
     <style>
     div {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
 }
     </style>
   </head>
@@ -26,16 +26,24 @@
     </center>
   </h1>
   <div>
+
+    <form>
     <center>
   <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Dot Size </font></p>
     <input style="padding-top: 2px; padding-bottom: 2px;" id='slider' type="range" min="2" max="10" value="2" class="slider">
     <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Light Intensity </font></p>
     <input style="padding-top: 2px; padding-bottom: 2px;" id='slider2' type="range" min="70" max="500" value="0" class="slider">
-      <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Foreground Color </font></p>
-    <input style="padding-top: 2px; padding-bottom: 2px;" id='fgcolor' type="color" min="70" max="500" value="0">
-    <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Background Color </font></p>
-    <input style="padding-top: 2px; padding-bottom: 2px;" id='bgcolor' type="color" min="70" max="500" value="0">
     </center>
+  </form>
+
+    <form>
+      <center>
+    <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Foreground Color </font></p>
+    <input style="padding-top: 2px; padding-bottom: 2px;" id='fgcolor' type="color" value="#000000">
+    <p style="padding-top: 2px; padding-bottom: 2px;"><font size='2'> Background Color </font></p>
+    <input style="padding-top: 2px; padding-bottom: 2px;" id='bgcolor' type="color" value="#FFFFFF">
+    </center>
+  </form>
   </div>
 </form>
 <style>
